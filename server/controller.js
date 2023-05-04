@@ -1,7 +1,9 @@
+const compliments = [`you're not, not fat :[`];
+
+
 module.exports = {
 
     getCompliment: (req, res) => {
-        const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascript skills are stellar."];
       
         // choose random compliment
         let randomIndex = Math.floor(Math.random() * compliments.length);
@@ -19,6 +21,10 @@ module.exports = {
         let randomFortune = fortune[randomIndex]
 
         res.status(200).send(randomFortune);
+    },
+    addCompliment: (req,res) => {
+        let body = req.body
+        console.log(body)
+        compliments.push(body.compliment)
     }
-
 }
